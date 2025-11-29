@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기억력 테스트 카드 게임</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">MEMORY MATCH</p>
+          <h1>기억력 테스트</h1>
+          <p class="subtitle">
+            같은 그림 카드를 찾아 모두 맞춰보세요! 난이도를 바꾸고 기록에 도전하세요.
+          </p>
+        </div>
+        <div class="controls">
+          <label>
+            난이도
+            <select id="difficulty" aria-label="난이도 선택">
+              <option value="easy">쉬움 4×3</option>
+              <option value="medium" selected>보통 4×4</option>
+              <option value="hard">어려움 6×6</option>
+            </select>
+          </label>
+          <button id="hintBtn" class="secondary">힌트 보기</button>
+          <button id="restartBtn" class="primary">다시 섞기</button>
+        </div>
+      </header>
+
+      <section class="stats">
+        <div>
+          <p class="label">타이머</p>
+          <p id="timer" class="value">00:00</p>
+        </div>
+        <div>
+          <p class="label">시도 횟수</p>
+          <p id="moves" class="value">0</p>
+        </div>
+        <div>
+          <p class="label">맞춘 쌍</p>
+          <p id="matches" class="value">0</p>
+        </div>
+        <div>
+          <p class="label">최고 기록</p>
+          <p id="bestRecord" class="value">-</p>
+        </div>
+      </section>
+
+      <main>
+        <div id="board" class="board" role="grid" aria-live="polite"></div>
+      </main>
+    </div>
+
+    <div id="resultModal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h2 id="modalTitle">축하합니다!</h2>
+        <p id="modalSummary"></p>
+        <div class="modal-actions">
+          <button id="modalRestart" class="primary">다시 도전</button>
+          <button id="modalClose" class="secondary">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
